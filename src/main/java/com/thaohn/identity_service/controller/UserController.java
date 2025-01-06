@@ -3,6 +3,7 @@ package com.thaohn.identity_service.controller;
 import com.thaohn.identity_service.dto.request.ApiResponse;
 import com.thaohn.identity_service.dto.request.UserCreationRequest;
 import com.thaohn.identity_service.dto.request.UserUpdateRequest;
+import com.thaohn.identity_service.dto.response.UserResponse;
 import com.thaohn.identity_service.entity.User;
 import com.thaohn.identity_service.service.UserService;
 import jakarta.validation.Valid;
@@ -29,12 +30,12 @@ public class UserController {
         return  userService.getUsers();
     }
     @GetMapping("/{userID}")
-    User getUser(@PathVariable String userID) {
+    UserResponse getUser(@PathVariable String userID) {
         return userService.getUser(userID);
     }
 
     @PutMapping("/{userID}")
-    User updateUser (@PathVariable String userID,  @RequestBody UserUpdateRequest request) {
+    UserResponse updateUser (@PathVariable String userID,  @RequestBody UserUpdateRequest request) {
         return userService.updateUser(userID, request);
 
     }

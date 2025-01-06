@@ -1,19 +1,17 @@
-package com.thaohn.identity_service.dto.request;
+package com.thaohn.identity_service.dto.response;
 
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserCreationRequest {
-    @Size(min=3, message = "USERNAME_INVALIED")
+public class UserResponse {
+    String id;
     String username;
-    @Size(min=8, message = "Password must be  at least 8 characters")
     String password;
     String firstName;
     String lastName;
